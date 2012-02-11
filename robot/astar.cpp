@@ -29,6 +29,8 @@
 #include <cstdlib>
 using namespace std;
 
+#define display 1         // Display the path found (1=yes)
+
 int n; // max in the x direction  
 int m; //  max in the y direction  
 int** map;
@@ -159,13 +161,11 @@ string A_star( const int & xStart, const int & yStart, const int & xFinish, cons
           }
 
           // create child nodes for all directions
-          for(i=0;i<dir;i++)
-          {
+          for(i=0;i<dir;i++) {
                xdx=x+dx[i]; ydy=y+dy[i];
 
                if(!(xdx<0 || xdx>n-1 || ydy<0 || ydy>m-1 || map[xdx][ydy]==1 
-                              || past_nodes[xdx][ydy]==1))
-               {
+                              || past_nodes[xdx][ydy]==1)) {
                     // create child
                     node_counter++;       // counter for total number of nodes
                     node_m=new node( xdx,  ydy,  node_n->getG_score(),  
@@ -173,40 +173,37 @@ string A_star( const int & xStart, const int & yStart, const int & xFinish, cons
                     node_m->next(i);
                     node_m->updatePriority(xFinish,  yFinish);
 
-                    // add to frontier 
-                    if(frontier[xdx][ydy]==0)
-                    {
+                    /* Add to frontier */
+                    if(frontier[xdx][ydy]==0){
                          frontier[xdx][ydy]=node_m->getF_score();
                          queue[index].push(*node_m);
-                         // mark parent direction
+                         /* mark the parent direction */
                          delete node_m;
                          directions[xdx][ydy]=(i+dir/2)%dir;
                     }
-                    else if(frontier[xdx][ydy]>node_m->getF_score())
-                    {
-                         // update f_score 
-                         frontier[xdx][ydy]=node_m->getF_score();
-                         // update parent direction 
-                         directions[xdx][ydy]=(i+dir/2)%dir;
+                    else if(frontier[xdx][ydy]>node_m->getF_score()){
+                         /* new f_score */
+                         frontier[xdx][ydy] = node_m->getF_score();
+                         /* update parent direction */
+                         directions[xdx][ydy] = (i+dir/2) % dir;
 
-                         // empty one priority queue to the other one
+                         /* empty one priority queue to the other one */
                          while(!(queue[index].top().getcurrent_x()==xdx && 
-                                        queue[index].top().getcurrent_y()==ydy))
-                         {                
+                                        queue[index].top().getcurrent_y()==ydy)){                
                               queue[1-index].push(queue[index].top());
                               queue[index].pop();       
                          }
                          queue[index].pop(); // remove the wanted node
 
                          // exchange priority queues
-                         if(queue[index].size()>queue[1-index].size()) index=1-index;
-                         while(!queue[index].empty())
-                         {                
+                         if(queue[index].size()>queue[1-index].size()) 
+                              index=1-index;
+                         while(!queue[index].empty()){                
                               queue[1-index].push(queue[index].top());
                               queue[index].pop();       
                          }
                          index=1-index;
-                         queue[index].push(*node_m); // add new node
+                         queue[index].push(*node_m); // add new node to the queue
                          delete node_m;
                     }
                     else delete node_m; 
@@ -319,9 +316,10 @@ int main()
                     map[x2[i+1]][y2[i+1]]=3;        
                }
           }
+          /* Check every step of the individual routes for collition  */
           for (int i=0;i<(int) min(route1.length(),route2.length());i++){ 
                if ((x[i]==x2[i]) && (y[i]==y2[i])){         // Conflict Resolution
-                    printf("Robot 2 Needs to Stall before Move %d\n", i);
+                    printf("Robot 2 Needs to Stall before Move %d\n", i);  // Just display a message at the point of the stall
                }
           }
           free(x); free(x2); free(y); free(y2);
@@ -334,24 +332,28 @@ int main()
                    \n    F: Finish           \
                    \n--------------------\n\n";
 
-          // display the map and the routes
-          for(int x=0;x<n;x++){
-               for(int y=0;y<m;y++){
-                    if(map[x][y]==0)
-                         cout<<" "; //empty 
-                    else if(map[x][y]==1)
-                         cout<<"@"; //obstacle
-                    else if(map[x][y]==2)
-                         cout<<"S"; //start
-                    else if(map[x][y]==3)
-                         cout<<"."; //route
-                    else if(map[x][y]==4)
-                         cout<<"F"; //finish
-                    else if(map[x][y]==5)
-                         cout<<"*"; //overlap
+          if (display == 1){
+               // display the map and the routes
+               for(int x=0;x<n;x++){
+                    for(int y=0;y<m;y++){
+                         if(map[x][y]==0)
+                              cout<<" "; //empty 
+                         else if(map[x][y]==1)
+                              cout<<"@"; //obstacle
+                         else if(map[x][y]==2)
+                              cout<<"S"; //start
+                         else if(map[x][y]==3)
+                              cout<<"."; //route
+                         else if(map[x][y]==4)
+                              cout<<"F"; //finish
+                         else if(map[x][y]==5)
+                              cout<<"*"; //overlap
+                    }
+                    cout<<endl;
                }
-               cout<<endl;
           }
+     } else {
+          printf("\nError\n");
      }
      cout << endl <<"Total Nodes Expanded: "<< node_counter<< endl;
      return(0);
