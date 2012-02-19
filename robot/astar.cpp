@@ -70,7 +70,7 @@ class Node{
      int getg() const {return g_score;}
      int getf() const {return f_score;}
 
-     void updatePriority(const int & xDest,  const int & yDest){
+     void updatef(const int & xDest,  const int & yDest){
           f_score=g_score+heuristic(xDest, yDest)*10; 
      }
 
@@ -121,7 +121,7 @@ string A_star( const int & x_start, const int & y_start, const int & x_finish, c
 
      // create the start node and push into list of open nodes
      node_n=new Node(x_start,  y_start,  0,  0);
-     node_n->updatePriority(x_finish,  y_finish);
+     node_n->updatef(x_finish,  y_finish);
      queue[index].push(*node_n);
      delete node_n;
 
@@ -168,7 +168,7 @@ string A_star( const int & x_start, const int & y_start, const int & x_finish, c
                     node_m=new Node( xdx,  ydy,  node_n->getg(),  
                               node_n->getf());
                     node_m->new_g(i);
-                    node_m->updatePriority(x_finish,  y_finish);
+                    node_m->updatef(x_finish,  y_finish);
 
                     /* Add to frontier */
                     if(frontier[xdx][ydy]==0){
