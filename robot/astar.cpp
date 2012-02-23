@@ -2,8 +2,7 @@
  * =====================================================================================
  *
  *       Filename:  astar.cpp
- *
- *    Description:  A* Algorithm for two agents with a common goal node.
+ * *    Description:  A* Algorithm for two agents with a common goal node.
  *                  Priority queue was implemented using C++'s queue library
  *
  *        Version:  1.0
