@@ -1,0 +1,48 @@
+Total Size (X, Y): 5 x 5
+Robot 1 Starting Point: 1, 5
+Robot 2 Starting Point: 4, 1
+Meeting Point: 4, 5
+ Calculating Path for Robot 1
+Considering Position <4, 1> at step 1
+Considering Position <3, 0> at step 1
+Considering Position <4, 2> at step 2
+Considering Position <4, 3> at step 3
+Considering Position <3, 2> at step 3
+
+ Calculating Path for Robot 2
+Considering Position <0, 4> at step 1
+Considering Position <0, 2> at step 1
+Considering Position <1, 4> at step 2
+Considering Position <2, 4> at step 4
+Considering Position <3, 4> at step 5
+Considering Position <2, 3> at step 5
+Considering Position <2, 2> at step 7
+Considering Position <3, 2> at step 8
+Considering Position <2, 1> at step 8
+Considering Position <4, 2> at step 9
+Considering Position <1, 1> at step 10
+Considering Position <2, 0> at step 10
+Considering Position <4, 3> at step 11
+Considering Position <4, 1> at step 11
+Route 1:
+111
+
+Route 2:
+10033001
+
+
+--------------------                   
+    @: Obstacle                            
+    S: Start                               
+    .: Single Path                         
+    *: Mutual Path                         
+    F: Finish                              
+--------------------
+
+ @ S.
+@ @@.
+  ...
+ @.@ 
+S.*F@
+
+Total Nodes Expanded: 19

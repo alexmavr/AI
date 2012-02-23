@@ -1,0 +1,99 @@
+Total Size (X, Y): 10 x 10
+Robot 1 Starting Point: 1, 5
+Robot 2 Starting Point: 4, 1
+Meeting Point: 10, 7
+ Calculating Path for Robot 1
+Considering Position <5, 0> at step 1
+Considering Position <4, 1> at step 1
+Considering Position <3, 0> at step 1
+Considering Position <4, 2> at step 2
+Considering Position <5, 2> at step 3
+Considering Position <4, 3> at step 3
+Considering Position <5, 3> at step 4
+Considering Position <3, 3> at step 4
+Considering Position <5, 3> at step 5
+Considering Position <3, 4> at step 7
+Considering Position <2, 3> at step 7
+Considering Position <2, 0> at step 8
+Considering Position <2, 4> at step 9
+Considering Position <5, 4> at step 10
+Considering Position <6, 4> at step 11
+Considering Position <5, 5> at step 11
+Considering Position <5, 6> at step 12
+Considering Position <6, 6> at step 13
+Considering Position <5, 7> at step 13
+Considering Position <4, 6> at step 13
+Considering Position <5, 8> at step 14
+Considering Position <4, 7> at step 14
+Considering Position <5, 9> at step 15
+Considering Position <4, 8> at step 15
+Considering Position <2, 1> at step 16
+Considering Position <4, 7> at step 17
+Considering Position <7, 4> at step 18
+Considering Position <7, 6> at step 19
+Considering Position <2, 2> at step 20
+Considering Position <1, 1> at step 20
+Considering Position <6, 9> at step 21
+Considering Position <4, 8> at step 22
+Considering Position <3, 7> at step 22
+
+ Calculating Path for Robot 2
+Considering Position <0, 4> at step 1
+Considering Position <0, 2> at step 1
+Considering Position <1, 4> at step 2
+Considering Position <0, 5> at step 2
+Considering Position <2, 4> at step 3
+Considering Position <3, 4> at step 5
+Considering Position <2, 5> at step 5
+Considering Position <2, 3> at step 5
+Considering Position <3, 3> at step 6
+Considering Position <2, 6> at step 7
+Considering Position <2, 7> at step 9
+Considering Position <1, 6> at step 9
+Considering Position <3, 7> at step 10
+Considering Position <2, 8> at step 10
+Considering Position <4, 7> at step 11
+Considering Position <5, 7> at step 12
+Considering Position <4, 8> at step 12
+Considering Position <4, 6> at step 12
+Considering Position <2, 9> at step 13
+Considering Position <4, 3> at step 14
+Considering Position <2, 3> at step 14
+Considering Position <5, 8> at step 15
+Considering Position <5, 9> at step 17
+Considering Position <5, 7> at step 17
+Considering Position <5, 6> at step 18
+Considering Position <2, 2> at step 19
+Considering Position <3, 9> at step 20
+Considering Position <1, 9> at step 20
+Considering Position <5, 3> at step 21
+Considering Position <4, 2> at step 21
+Considering Position <6, 9> at step 23
+Considering Position <5, 6> at step 24
+Route 1:
+11101111110
+
+Route 2:
+100111001010
+
+
+--------------------                   
+    @: Obstacle                            
+    S: Start                               
+    .: Single Path                         
+    *: Mutual Path                         
+    F: Finish                              
+--------------------
+
+ @ S. @   
+@ @@.@ @@ 
+    ....  
+ @@  @@.@ 
+S...@@ ..@
+ @ .....**
+@ @@ @ @@F
+   @      
+ @    @   
+@   @@   @
+
+Total Nodes Expanded: 65

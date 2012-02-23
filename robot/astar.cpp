@@ -110,6 +110,7 @@ string A_star( const int & x_start, const int & y_start, const int & x_finish, c
      static int i,  j,  x,  y,  xdx,  ydy;
      static char c;
      index=0;
+     unsigned int step=0;
 
      // reset the node maps
      for(y=0;y<m;y++){
@@ -158,12 +159,14 @@ string A_star( const int & x_start, const int & y_start, const int & x_finish, c
                return path;
           }
 
+          step++;
           // create child nodes in all directions
           for(i=0;i<dir;i++) {
                xdx=x+dx[i]; ydy=y+dy[i];
 
                if(!(xdx<0 || xdx>n-1 || ydy<0 || ydy>m-1 || map[xdx][ydy]==1 || past_nodes[xdx][ydy]==1)) {
                     /* Create Child */
+                    printf("Considering Position <%d, %d> at step %u\n", xdx, ydy, step);
                     node_counter++;       // counter for total nodes
                     node_m=new Node( xdx,  ydy,  node_n->getg(),  
                               node_n->getf());
@@ -263,9 +266,11 @@ int main(){
      x_goal--; y_goal--;
 
      /* Find the Routes Individually */
+     printf(" Calculating Path for Robot 1\n");
      string route1=A_star(x_start[0], y_start[0],  x_goal,  y_goal);
      if (route1=="") 
           cout << "Empty route for robot 1 !" << endl;
+     printf("\n Calculating Path for Robot 2\n");
      string route2=A_star(x_start[1], y_start[1],  x_goal,  y_goal);
      if (route2=="") 
           cout << "Empty route for robot 2 !" << endl;
