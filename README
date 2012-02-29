@@ -1,3 +1,6 @@
 Artificial Intelligence class homework at ntua
 
-robot: two-agent A* implementation in C++
+robot: two-agent pathfinding using A* in C++
+     C++ libraries are used only for the priority queue and output.
+     Input is given from stdin as ./astar < input_file
+

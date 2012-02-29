@@ -2,15 +2,15 @@
  * =====================================================================================
  *
  *       Filename:  astar.cpp
- * *    Description:  A* Algorithm for two agents with a common goal node.
- *                  Priority queue was implemented using C++'s queue library
+ * *    Description:  A* Algorithm for two agents with common goal node and collision control.
+ *                 priority queue was implemented using C++'s queue library
  *
  *        Version:  1.0
  *        Created:  02/09/2012 06:58:20 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Authors:  Alex Mavrogiannis, George Marinellis
+ *         Authors:  Alex Mavrogiannis
  *   Organization:  National Technical University of Athens 
  *
  * =====================================================================================
@@ -21,8 +21,7 @@
 */
 
 #include <iostream>
-#include <iomanip>
-#include <queue>
+#include <iomanip> #include <queue>
 #include <string>
 #include <math.h>
 #include <cstdio>
